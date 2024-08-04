@@ -5,6 +5,7 @@ from find_dir import getProjDir,getWorkDir
 from rg import rg
 from tb_gen import tb_gen,find_top
 from work_gen import work_gen
+from syn_gen import syn_top_gen
 
 def nct_help():
     green_begin = "\033[1;32m"
@@ -46,7 +47,7 @@ if __name__=="__main__":
     # gen
     parser.add_argument("--work", help="gen the work dir, eg: --work lbus")
     parser.add_argument("--tb", help="gen the testbench dir, eg: nct gen --tb lbus")
-    # parser.add_argument("--syn", help="gen the syn dir, eg: nct gen --syn lbus")
+    parser.add_argument("--syn", help="gen the syn dir, eg: nct gen --syn lbus")
     parser.add_argument("-f", help="gen the syn dir, eg: nct gen --syn lbus -f syn_top.f")
     # parser_gen.add_argument("--flist", action="store_true", help="gen the filelist.")
 
@@ -80,6 +81,10 @@ if __name__=="__main__":
         if args.tb:
             design_name = args.tb
             tb_gen(root_path,design_name)
+        
+        if args.syn:
+            design_name = args.syn
+            syn_top_gen(root_path, design_name)
 
     if args.c:
         print("rg run.")

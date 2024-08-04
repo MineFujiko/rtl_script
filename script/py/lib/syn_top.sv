@@ -1,4 +1,7 @@
-module syn_top
+module syn_top #(
+    parameter C_XXXX = 32,
+    parameter C_XXX  = 64
+)
 (
     input              clk     ,
     input              rst_n   ,
@@ -9,7 +12,6 @@ module syn_top
 );
 
 // parameter
-localparam C_XXXX = 32;
 
 // declare
     logic a;
